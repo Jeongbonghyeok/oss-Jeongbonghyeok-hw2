@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(247, 249, 251);
+        }
+        .top{
+            text-align: center;
+            margin : 20px 250px;
+            
+        }
+        .mid-left-country{
+            display: flex;
+        }
+        .mid-left-pay{
+            display: flex;
+        }
+        .right-top{
+            display:flex;
+        }
+        .right-mid{
+            border:1px solid rgb(173, 171, 171);
+            border-radius: 5px;
+            background-color:white; 
+            padding:0px 0px;
+            
+
+    
+        }
+        .right-bottom{
+            display: flex;
+            padding:10px ;
+            border: 1px solid rgb(173, 171, 171);
+            border-radius: 5px;
+            background-color: white;
+            margin-top: 20px;
+            
+        }
+        .middle{
+            display: flex;
+            
+        }
+        .left{
+            width:70%;
+            padding:30px;
+            margin-left:250px;
+        }
+        .right{
+            width:30%;
+            padding:30px;
+            margin-right:250px;
+           
+           
+            
+        }
+        .input-box{
+            height:30px;
+            width:100%;
+            border: 1px solid rgb(173, 171, 171);
+            border-radius:5px;
+        }
+        .right_ele{
+            height:50px;
+            border-bottom: 1px solid rgb(173, 171, 171);
+            
+        }
+        .price{
+            text-align: right;
+           
+        }
+        hr{
+            padding:0px;
+            margin:0px;
+        }
+        .submit-box{
+            background-color: rgb(85, 85, 245);
+            color:white;
+            text-align: center;
+            width:100%;
+            padding: 10px;
+            margin:5px;
+            border: 1px solid rgb(85, 85, 245);
+            border-radius: 5px;
+            height:50px;
+            font-size: 20px;
+        }
+        .bottom{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="top">
+        <img src="baner.svg" alt="icon" width="80" height="70" style="margin-top:40px;"/>
+        <p style="font-size:30px;">Checkout form</p>
+        <p style="margin:0px 200px;">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div>
+    <div class="middle">
+        <div class="left">
+            <p style="font-size:23px;">Billing address</p>
+            <form action="/submit" method="POST"><!--: text O, radio O, checkbox, select O, date O, textarea O-->
+                <label for="first-name" style="margin-right:40%; ">First name </label>
+                <label for="last-name" > Last name</label><br/><br/>
+                <input type="text" name="getFirstName" style="margin-right:40px; width:45%;" class="input-box"/>
+                <input type="text" name="getLastName"  style="width:45%;" class="input-box"/>
+                <div id="firstNameError" class="error-message"></div>
+                <div id="SecondNameError" class="error-message"></div>
+                <br/><br/>
+                <label for="userName">User name</label><br/><br/>
+                <input type="email" name="getEmail" placeholder="Username" class="input-box"/><br/><br/>
+                <label for="userName">Email<span style="color:gray">(optional)</span></label><br/><br/>
+                <input type="email" name="getEmail" placeholder="honggildong@example.com" class="input-box"/><br/><br/>
+                <label for="gender" >Birth-Date</label><br/><br/>
+                <input type="date" name="birthday" class="input-box"/><br/><br/>
+                <label for="address">Address</label><br/>
+                <input type="textarea" name="address" class="input-box"/><br/><br/>
+                <div class="mid-left-country">
+                    <div style="margin-right:40px; width:50%;">
+                        <label for="country">country </label><br/>
+                        <select style="width:90%; height:30px;"  class="input-box">
+                            <option >Korea</option>
+                            <option>Other country</option>
+                        </select>
+                    </div>
+                    <div style="width:50%">
+                        <label for="place"> State</label><br/>
+                        <select style="width:90%; height:30px;"  class="input-box">
+                            <option >Seoul</option>
+                            <option>Other City</option>
+                        </select>
+                    </div>
+                </div>
+                <br/>
+                <hr/><br/>
+                <label for="patment" style="font-size:25px;">Payment</label><br/><br/>
+                <input type="radio" name="payment"/><span> Credit card</span><br/>
+                <input type="radio" name="payment"/><span> Debit card</span><br/>
+                <input type="radio" name="payment"/><span> KaKao pay</span><br/><br/>
+                <div class="mid-left-pay">
+                    <div style="margin-right:40px; width:50%;">
+                        <label for="nameOnCard">Name on card</label><br/>
+                        <input type="text" name="cardName" class="input-box"/>
+                    </div>
+                    <div style="width:50%;">
+                        <label for="CreditCardNumber">Credit card number</label><br/>
+                        <input type="text" name="cardNumber"  class="input-box"/>
+                    </div>
+                </div>
+                <br/>
+                <hr/>
+                <br/>
+                <label for="agree1">개인정보 유출을 동의하시겠습니까?</label>
+                <input type="checkbox" name="checkAgree" id="agree1"/><br/>
+                <label for="agree2">제 3자에게의 개인정보 판매를 동의하시겠습니까?</label>
+                <input type="checkbox" name="checkAgree" id="agree2"/><br/><br/>
+                <hr/>
+                <br/>
+                <input type="submit" name="sunmit" class="submit-box" value="Countinue to Checkout"/>
+            </form>
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <p style="color:rgb(82, 82, 157); font-size:20px;">Your Cart</p>
+                <p style="background-color:rgb(82, 82, 157); padding:6px 10px; border-radius: 100%; color:white; margin-left:50%; " >3</p>
+            </div>
+            <div class="right-mid">
+                <div class="right_ele"> 
+                    <p style="margin-bottom:1px; margin-left: 10px;">Product name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="price" style="float:right; margin-right:10px;">$12</span></p>
+                    <p style="font-size:12px; margin-top:1px; color:rgb(125, 124, 124); margin-left: 10px;">Brief description</p> 
+                </div>
+          
+                <div class="right_ele">
+                    <p style="margin-bottom:1px; margin-top:3px; margin-left: 10px;">Second product &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span  style="float:right; margin-right:10px;">$8</span></p>
+                    <p style="font-size:12px;  margin-top:1px;  color:rgb(125, 124, 124); margin-left: 10px;">Brief description</p>
+                </div>
+          
+                <div class="right_ele">
+                    <p style="margin-bottom:1px;  margin-top:3px;margin-left: 10px;">Third item &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="float:right; margin-right:10px;">$5</span></p>
+                    <p style="font-size:12px;  margin-top:1px;  color:rgb(125, 124, 124); margin-left: 10px;">Brief description</p>
+                </div>
+        
+                <div class="right_ele" style="background-color: rgb(243, 244, 245)">
+                    <p style="margin-bottom:1px; margin-top:3px; color:rgb(68, 149, 122); margin-left: 10px; ">Promo Code &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="float:right; margin-right:10px;">$12</span></p>
+                    <p style="font-size:12px; margin-top:1px;  color:rgb(125, 124, 124); margin-left: 10px;">EXAMPLECODE</p>
+                </div>
+                
+                <div class="right_ele" style="border-bottom: 0px;">
+                     <p style="margin-left: 10px;">Total (USD) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="float:right; margin-right:10px;">$20</span></p>
+                </div>
+                
+            </div>
+            <div class="right-bottom">
+                <input type="text" name="redeem" placeholder="&nbsp; Promo code" class="input-box" style="border-radius: 5px 0px 0px 5px;"/>
+                <button style="background-color: rgb(152, 150, 150); color:white; border-radius :0px 5px 5px 0px;">Redeem</button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="bottom">
+        <p style="color:rgb(167, 159, 159)">© 2017–2022 Company Name</p>
+        <div>
+            <a href="https://google.com" style="font-size: 14px;">Privacy</a>. &nbsp;
+            <a href="https://naver.com" style="font-size: 14px;">Terms</a> &nbsp;
+            <a href="https://naver.com" style="font-size: 14px;"> Support</a>&nbsp;
+        </div>
+       
+    </div>
+    
+    
+</body>
+</html> 

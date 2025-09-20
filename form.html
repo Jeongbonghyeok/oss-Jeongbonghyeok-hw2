@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div class="top">
+        <img src="baner.svg" alt="icon" width="80" height="70" />
+        <p >Checkout form</p>
+        <p >Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div>
+    <div class="middle">
+        <div class="right">
+
+        </div>
+        <div class="left">
+            <p>Billing address</p>
+            <form action="/submit" method="POST"><!--: text O, radio O, checkbox, select O, date O, textarea O-->
+                <label for="first-name" >First name </label>
+                <label for="last-name" > Last name</label><br/>
+                <input type="text" name="getFirstName" style="margin-right:40px"/>
+                <input type="text" name="getLastName"/><br/>
+                <label for="userName">User name</label>
+                <input type="email" name="getEmail" placeholder="Username"/><br/>
+                <label for="userName">Email<span >(optional)</span></label><br/>
+                <input type="email" name="getEmail" placeholder="honggildong@example.com"/><br/>
+                <label for="gender">Birth-Date</label><br/>
+                <input type="date" name="birthday"/>
+                <label for="address">Address</label>
+                <input type="textarea" name="address"/>
+                <div class="mid-left-country">
+                    <div>
+                        <label for="country">country</label>
+                        <select>
+                            <option>Korea</option>
+                            <option>Other country</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="place">State</label>
+                        <select>
+                            <option>Seoul</option>
+                            <option>Other City</option>
+                        </select>
+                    </div>
+                </div>
+                <br/>
+                <hr/><br/>
+                <label for="patment">Payment</label><br/>
+                <input type="radio" name="payment"/><span> Credit card</span><br/>
+                <input type="radio" name="payment"/><span> Debit card</span><br/>
+                <input type="radio" name="payment"/><span> KaKao pay</span><br/>
+                <div class="mid-left-pay">
+                    <div>
+                        <label for="nameOnCard">Name on card</label><br/>
+                        <input type="text" name="cardName"/>
+                    </div>
+                    <div>
+                        <label for="CreditCardNumber">Credit card number</label>
+                        <input type="text" name="cardNumber"/>
+                    </div>
+                </div>
+                <hr/>
+                <label for="agree1">개인정보 유출을 동의하시겠습니까?</label>
+                <input type="checkbox" name="checkAgree" id="agree1"/><br/>
+                <label for="agree2">제 3자에게의 개인정보 판매를 동의하시겠습니까?</label>
+                <input type="checkbox" name="checkAgree" id="agree2"/><br/>
+                <hr/>
+                <input type="submit" name="sunmit"/>
+
+            </form>
+        </div>
+        
+        <div class="right">
+            <div class="right-top">
+                <p >Your Cart</p>
+                <p >3</p>
+            </div>//
+            <div class="right-mid">
+              <div class="right_ele"> 
+                <p class="product-name">
+                  Product name <span class="price">$12</span>
+                </p>
+                <p class="description">Brief description</p> 
+              </div>
+              <div class="right_ele">
+                <p class="product-name">
+                  Second product <span class="price">$8</span>
+                </p>
+                <p class="description">Brief description</p>
+              </div>
+          
+              <div class="right_ele">
+                <p class="product-name">
+                  Third item <span class="price">$5</span>
+                </p>
+                <p class="description">Brief description</p>
+              </div>
+          
+              <div class="right_ele promo">
+                <p class="promo-title">
+                  Promo Code <span class="price">$12</span>
+                </p>
+                <p class="description">EXAMPLECODE</p>
+              </div>
+
+              <div class="right_ele total">
+                <p class="total-title">
+                  Total (USD) <span class="price">$20</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="right-bottom">
+              <input type="text" name="redeem" placeholder="Promo code" class="input-box"/>
+              <button class="redeem-btn">Redeem</button>
+            </div>
+        <div class="bottom">
+            <p class="footer-text">© 2017–2022 Company Name</p>
+            <div class="footer-links">
+            <a href="https://google.com">Privacy</a> · 
+            <a href="https://naver.com">Terms</a> · 
+            <a href="https://naver.com">Support</a>
+        </div>
+</div>
+
+</body>
+</html> 

@@ -1,0 +1,78 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body{
+                display: flex;
+                flex-direction: column; 
+                align-items: center; 
+            }
+            #add{
+                background-color: blue;
+                color:white;
+            }
+            #remove{
+                background-color: red;
+                color:white;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div>
+            <h1>Dynamic Web Page</h1>
+            <input type="text" id="ele"/>
+            <button id="add">추가</button>
+            <button id="remove">삭제</button>
+        </div>
+        <div>
+            <ul id="list">
+                
+            </ul>
+        </div>
+
+        <script>
+            const inputValue = document.getElementById("ele");
+            const addButton = document.getElementById("add");
+            const removeButton = document.getElementById("remove");
+            const list = document.getElementById("list");
+
+            let data="";
+            let part="";
+
+            addButton.addEventListener('click', ()=>{
+                let arr;
+                data = inputValue.value;
+
+                
+
+            
+                arr = data.split(',');
+                for(let i =0; i<arr.length;i++){
+                    if(arr[i]=="" ||arr[i]==" " || arr[i]=="   " || arr[i]=="    "){
+                        continue;
+                    }
+                    arr[i] = arr[i].trim();
+                }
+
+                for(let i=0; i<arr.length;i++){
+                    if(arr[i]=="" ||arr[i]==" " || arr[i]=="   " || arr[i]=="    "){
+                        continue;
+                    }
+                    let newLiTag = document.createElement("li");
+                    newLiTag.textContent=arr[i];
+                    list.appendChild(newLiTag);
+                }
+                inputValue.value = "";
+            })
+
+            removeButton.addEventListener('click', ()=>{
+                list.innerHTML = "";
+            })
+
+        </script>
+    </body>
+    </html>

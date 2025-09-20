@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(247, 249, 251);
+        }
+        .top{
+            text-align: center;
+            margin : 20px 250px;
+            
+        }
+        .mid-left-country{
+            display: flex;
+        }
+        .mid-left-pay{
+            display: flex;
+        }
+        .right-top{
+            display:flex;
+        }
+        .right-mid{
+            border:1px solid rgb(173, 171, 171);
+            border-radius: 5px;
+            background-color:white; 
+            padding:0px 0px;
+            
+
+    
+        }
+        .right-bottom{
+            display: flex;
+            padding:10px ;
+            border: 1px solid rgb(173, 171, 171);
+            border-radius: 5px;
+            background-color: white;
+            margin-top: 20px;
+            
+        }
+        .middle{
+            display: flex;
+            
+        }
+        .left{
+            width:70%;
+            padding:30px;
+            margin-left:250px;
+        }
+        .right{
+            width:30%;
+            padding:30px;
+            margin-right:250px;
+           
+           
+            
+        }
+        .input-box{
+            height:30px;
+            width:100%;
+            border: 1px solid rgb(173, 171, 171);
+            border-radius:5px;
+        }
+        .input-box:focus{
+            border: 1px solid #99c1ef;        
+            box-shadow: 0 0 5px 2px #99c1ef;  
+            outline: none;  
+        }
+        .right_ele{
+            height:50px;
+            border-bottom: 1px solid rgb(173, 171, 171);
+            
+        }
+        .price{
+            text-align: right;
+           
+        }
+        hr{
+            padding:0px;
+            margin:0px;
+        }
+        .submit-box{
+            background-color: rgb(85, 85, 245);
+            color:white;
+            text-align: center;
+            width:100%;
+            padding: 10px;
+            margin:5px;
+            border: 1px solid rgb(85, 85, 245);
+            border-radius: 5px;
+            height:50px;
+            font-size: 20px;
+        }
+        .bottom{
+            text-align: center;
+        }
+        .errorFont{
+            font-size:13px;
+            color:red;
+        }
+        .errorBox{
+            border: 1px solid red;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='red' class='bi bi-exclamation-circle'><path d='M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z'/><path d='M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zm.93-7.481-.082 4.992c-.007.437.318.789.75.789s.757-.352.75-.789l-.082-4.992A.755.755 0 0 0 8 3c-.414 0-.75.336-.75.75z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+            
+        }
+        .errorBox:focus{
+            border: 1px solid red;
+            box-shadow: 0 0 5px 2px rgb(211, 139, 139);  
+            outline: none;  
+        }
+        .successBox{
+            border: 1px solid rgb(72, 188, 105);
+            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='green' class='bi bi-check-circle'><path d='M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z'/><path d='M10.97 6.97a.75.75 0 0 0-1.08-1.04L7.477 8.417 6.384 7.323a.75.75 0 1 0-1.06 1.06L6.97 10.03a.75.75 0 0 0 1.079-.02l2.92-3.04z'/></svg>") no-repeat right 10px center / 16px;
+
+    
+        }
+        .successBox:focus{
+            border: 1px solid rgb(72, 188, 105);
+            box-shadow: 0 0 5px 2px rgb(138, 224, 138);  
+            outline: none; 
+            background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='green' class='bi bi-check-circle'><path d='M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z'/><path d='M10.97 6.97a.75.75 0 0 0-1.08-1.04L7.477 8.417 6.384 7.323a.75.75 0 1 0-1.06 1.06L6.97 10.03a.75.75 0 0 0 1.079-.02l2.92-3.04z'/></svg>") no-repeat right 10px center / 16px;
+
+    
+        }
+
+ 
+       
+        
+    </style>
+</head>
+<body>
+    
+    <div class="top">
+        <img src="baner.svg" alt="icon" width="80" height="70" style="margin-top:40px;"/>
+        <p style="font-size:30px;">Checkout form</p>
+        <p style="margin:0px 200px;">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+    </div>
+    <div class="middle">
+        <div class="left">
+            <p style="font-size:23px;">Billing address</p>
+            <form action="/submit" method="POST" id="myForm"><!--: text O, radio O, checkbox, select O, date O, textarea O-->
+                <div style="display: flex; width:100%">
+                    <div style="width:45%; margin-right:30px;">
+                        <label for="first-name" style="margin-right:40%; ">First name </label>
+                        <input type="text" name="getFirstName" style="margin-right:40px;" class="input-box" id="firstName" required/>
+                        <div id="firstNameError" class="error-message"></div>
+                    </div>
+                    <div style="width:45%;">
+                        <label for="last-name" > Last name</label>
+                        <input type="text" name="getLastName"  class="input-box" id="lastName" required/>
+                        <div id="lastNameError" class="error-message" ></div>
+                    </div>
+                </div>
+                
+                <br/><br/>  
+                <label for="userName">User name</label><br/><br/>
+                <input type="email" name="getEmail" placeholder="Username" class="input-box" id="userName"/>
+                <div id="usernameError" class="error-message"></div>
+                <br/><br/>
+                <label for="email">Email<span style="color:gray">(optional)</span></label><br/><br/>
+                <input type="email" name="getEmail" placeholder="honggildong@example.com" class="input-box" id="email"/><br/><br/>
+                <label for="birthday" >Birth-Date</label><br/><br/>
+                <input type="date" name="birthday" class="input-box" id="birthday"/>
+                <div id="birthdayError" class="error-message"></div>
+                <br/><br/>
+                <label for="address">Address</label><br/>
+                <textarea id="address" class="input-box"></textarea>
+                <div id="addressError" class="error-message"></div>
+                <br/><br/>
+                <div class="mid-left-country">
+                    <div style="margin-right:40px; width:50%;">
+                        <label for="country">country </label><br/>
+                        <select style="width:90%; height:30px;"  class="input-box" id="country">
+                            <option>unselected</option>
+                            <option >Korea</option>
+                            <option>Other country</option>
+                        </select>
+                        <div id="countryError" class="error-message"></div>
+                    </div>
+                    <div style="width:50%">
+                        <label for="place"> State</label><br/>
+                        <select style="width:90%; height:30px;"  class="input-box" id="state">
+                            <option>unselected</option>
+                            <option >Seoul</option>
+                            <option>Other City</option>
+                        </select>
+                        <div id="stateError" class="error-message"></div>
+                    </div>
+                </div>
+                <br/>
+                <hr/><br/>
+                <label for="patment" style="font-size:25px;">Payment</label><br/><br/>
+                <input type="radio" name="payment" class="radioError payment" checked/><span class="radioFont"> Credit card</span><br/>
+                <input type="radio" name="payment" class="radioError payment"/><span class="radioFont"> Debit card</span><br/>
+                <input type="radio" name="payment" class="radioError payment"/><span class="radioFont"> KaKao pay</span><br/><br/>
+                <div class="mid-left-pay">
+                    <div style="margin-right:40px; width:50%;">
+                        <label for="nameOnCard">Name on card</label><br/>
+                        <input type="text" name="cardName" class="input-box" id="nameOnCard"/>
+                        <div id="nameOnCardError" class="error-message"></div>
+                    </div>
+                    <div style="width:50%;">
+                        <label for="creditCardNumber">Credit card number</label><br/>
+                        <input type="text" name="cardNumber"  class="input-box" id="creditCardNumber"/>
+                        <div id="creditCardNumberError" class="error-message"></div>
+                    </div>
+                </div>
+                <br/>
+                <hr/>
+                <br/>
+                <label for="agree1" class="checkboxbox">개인정보 유출을 동의하시겠습니까?</label>
+                <input type="checkbox" name="checkAgree" id="agree1" class="checkboxError"/><br/>
+                <label for="agree2"class="checkboxbox">제 3자에게의 개인정보 판매를 동의하시겠습니까?</label>
+                <input type="checkbox" name="checkAgree" id="agree2" class="checkboxError"/><br/><br/>
+                <hr/>
+                <br/>
+                <button type ="button" class="submit-box" onclick="validCheck()">Countinue to Checkout</button>
+            </form>
+        </div>
+        <div class="right">
+            <div class="right-top">
+                <p style="color:rgb(82, 82, 157); font-size:20px;">Your Cart</p>
+                <p style="background-color:rgb(82, 82, 157); padding:6px 10px; border-radius: 100%; color:white; margin-left:50%; " >3</p>
+            </div>
+            <div class="right-mid">
+                <div class="right_ele"> 
+                    <p style="margin-bottom:1px; margin-left: 10px;">Product name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="price" style="float:right; margin-right:10px;">$12</span></p>
+                    <p style="font-size:12px; margin-top:1px; color:rgb(125, 124, 124); margin-left: 10px;">Brief description</p> 
+                </div>
+          
+                <div class="right_ele">
+                    <p style="margin-bottom:1px; margin-top:3px; margin-left: 10px;">Second product &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span  style="float:right; margin-right:10px;">$8</span></p>
+                    <p style="font-size:12px;  margin-top:1px;  color:rgb(125, 124, 124); margin-left: 10px;">Brief description</p>
+                </div>
+          
+                <div class="right_ele">
+                    <p style="margin-bottom:1px;  margin-top:3px;margin-left: 10px;">Third item &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="float:right; margin-right:10px;">$5</span></p>
+                    <p style="font-size:12px;  margin-top:1px;  color:rgb(125, 124, 124); margin-left: 10px;">Brief description</p>
+                </div>
+        
+                <div class="right_ele" style="background-color: rgb(243, 244, 245)">
+                    <p style="margin-bottom:1px; margin-top:3px; color:rgb(68, 149, 122); margin-left: 10px; ">Promo Code &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="float:right; margin-right:10px;">$12</span></p>
+                    <p style="font-size:12px; margin-top:1px;  color:rgb(125, 124, 124); margin-left: 10px;">EXAMPLECODE</p>
+                </div>
+                
+                <div class="right_ele" style="border-bottom: 0px;">
+                     <p style="margin-left: 10px;">Total (USD) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="float:right; margin-right:10px;">$20</span></p>
+                </div>
+                
+            </div>
+            <div class="right-bottom">
+                <input type="text" name="redeem" placeholder="&nbsp; Promo code" class="input-box" style="border-radius: 5px 0px 0px 5px;"/>
+                <button style="background-color: rgb(152, 150, 150); color:white; border-radius :0px 5px 5px 0px;">Redeem</button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="bottom">
+        <p style="color:rgb(167, 159, 159)">© 2017–2022 Company Name</p>
+        <div>
+            <a href="https://google.com" style="font-size: 14px;">Privacy</a>. &nbsp;
+            <a href="https://naver.com" style="font-size: 14px;">Terms</a> &nbsp;
+            <a href="https://naver.com" style="font-size: 14px;"> Support</a>&nbsp;
+        </div>
+       
+    </div>
+
+    <script>
+        const form = document.getElementById("myForm");
+        const firstName = document.getElementById("firstName");
+        const firstNameError = document.getElementById("firstNameError");
+
+        const lastName = document.getElementById("lastName");
+        const lastNameError = document.getElementById("lastNameError");
+
+        const userName = document.getElementById("userName");
+        const usernameError =document.getElementById("usernameError");
+
+
+        const email = document.getElementById("email");
+        const birthday = document.getElementById("birthday");
+        const birthdayError = document.getElementById("birthdayError");
+
+        const address = document.getElementById("address");
+        const addressError = document.getElementById("addressError");
+
+        const country = document.getElementById("country");
+        const countryError =document.getElementById("countryError");
+
+        const state = document.getElementById("state");
+        const stateError = document.getElementById("stateError");
+
+        const nameOnCard = document.getElementById("nameOnCard");
+        const nameOnCardError = document.getElementById("nameOnCardError");
+
+        const creditCardNumber = document.getElementById("creditCardNumber");
+        const creditCardNumberError = document.getElementById("creditCardNumberError");
+
+        const payment = document.querySelector("input[name='payment']:checked");
+        const radioFont = document.getElementsByClassName("radioFont");
+        const radio = document.getElementsByClassName("radio");
+
+        const checkBox=document.getElementsByClassName("checkboxbox");
+
+        firstName.addEventListener("input", ()=>{ // 
+            if(firstName.value.trim() !== ""){
+                firstName.classList.remove("errorBox");
+                firstName.classList.remove("errorFont");
+                firstName.classList.add("successBox");
+                firstNameError.textContent="";
+                valid=true;
+            } else {
+                firstName.classList.remove("successBox");
+                firstNameError.classList.add("errorFont");
+                firstName.classList.add("errorBox");
+                firstNameError.textContent="First name cannot be empty.";
+                valid=false;
+             }
+        })
+
+        lastName.addEventListener("input", ()=>{ 
+             if(lastName.value.trim() !== ""){
+                 lastName.classList.remove("errorBox");
+                 lastName.classList.remove("errorFont");
+                 lastName.classList.add("successBox");
+                 lastNameError.textContent="";
+                 valid=true;
+             } else {
+                 lastName.classList.remove("successBox");
+                 lastNameError.classList.add("errorFont");
+                 lastName.classList.add("errorBox");
+                 lastNameError.textContent="Last name cannot be empty.";
+                 valid=false;
+             }
+            })
+
+        userName.addEventListener("input", ()=>{ 
+             if(userName.value.trim() !== ""){
+                 userName.classList.remove("errorBox");
+                 userName.classList.remove("errorFont");
+                 userName.classList.add("successBox");
+                 usernameError.textContent="";
+                 valid=true;
+             } else {
+                 userName.classList.remove("successBox");
+                 usernameError.classList.add("errorFont");
+                 userName.classList.add("errorBox");
+                 usernameError.textContent="User name cannot be empty.";
+                 valid=false;
+             }
+        })
+
+
+        birthday.addEventListener("input", ()=>{ 
+            if(birthday.value.trim() !== ""){
+                birthday.classList.remove("errorBox");
+                birthday.classList.remove("errorFont");
+                birthday.classList.add("successBox");
+                birthdayError.textContent="";
+                valid=true;
+            } else {
+                birthday.classList.remove("successBox");
+                birthdayError.classList.add("errorFont");
+                birthday.classList.add("errorBox");
+                birthdayError.textContent="Birthday cannot be empty.";
+                valid=false;
+            }
+        })      
+
+        address.addEventListener("input", ()=>{ 
+            if(address.value.trim() !== ""){
+                address.classList.remove("errorBox");
+                address.classList.remove("errorFont");
+                address.classList.add("successBox");
+                addressError.textContent="";
+                valid=true;
+            } else {
+                address.classList.remove("successBox");
+                addressError.classList.add("errorFont");
+                address.classList.add("errorBox");
+                addressError.textContent="Address cannot be empty.";
+                valid=false;
+            }
+        })
+
+        country.addEventListener("input", ()=>{ 
+            if(country.value.trim() !== "unselected"){
+                country.classList.remove("errorBox");
+                country.classList.remove("errorFont");
+                country.classList.add("successBox");
+                countryError.textContent="";
+                valid=true;
+            } else {
+                country.classList.remove("successBox");
+                countryError.classList.add("errorFont");
+                country.classList.add("errorBox");
+                countryError.textContent="Country cannot be empty.";
+                valid=false;
+            }
+        })
+
+        state.addEventListener("input", ()=>{ 
+            if(state.value.trim() !== "unselected"){
+                state.classList.remove("errorBox");
+                state.classList.remove("errorFont");
+                state.classList.add("successBox");
+                stateError.textContent="";
+                valid=true;
+            } else {
+                state.classList.remove("successBox");
+                stateError.classList.add("errorFont");
+                state.classList.add("errorBox");
+                stateError.textContent="State cannot be empty.";
+                valid=false;
+            }
+        })
+
+
+        creditCardNumber.addEventListener("input", ()=>{  
+            if(creditCardNumber.value.trim() !== ""){
+                creditCardNumber.classList.remove("errorBox");
+                creditCardNumber.classList.remove("errorFont");
+                creditCardNumber.classList.add("successBox");
+                creditCardNumberError.textContent="";
+                valid=true;
+            } else {
+                creditCardNumber.classList.remove("successBox");
+                creditCardNumberError.classList.add("errorFont");
+                creditCardNumber.classList.add("errorBox");
+                creditCardNumberError.textContent="Credit card number cannot be empty.";
+                valid=false;
+            }
+        })
+
+        nameOnCard.addEventListener("input", ()=>{  
+            if(nameOnCard.value.trim() !== ""){
+                nameOnCard.classList.remove("errorBox");
+                nameOnCard.classList.remove("errorFont");
+                nameOnCard.classList.add("successBox");
+                nameOnCardError.textContent="";
+                valid=true;
+            } else {
+                nameOnCard.classList.remove("successBox");
+                nameOnCardError.classList.add("errorFont");
+                nameOnCard.classList.add("errorBox");
+                nameOnCardError.textContent="Name on card cannot be empty.";
+                valid=false;
+            }
+        })
+
+
+
+
+        function validCheck(){
+            valid =true;
+
+            if(firstName.value.trim()===""){
+                firstNameError.classList.add("errorFont");
+                firstName.classList.add("errorBox");
+                firstNameError.textContent="First name cannot be empty.";
+                valid =false;
+            }else{
+                firstName.classList.remove("errorFont");
+                firstNameError.classList.remove("errorBox");
+                firstNameError.textContent="";
+                valid=true;
+            }
+
+            if(lastName.value.trim()===""){
+                lastNameError.classList.add("errorFont");
+                lastName.classList.add("errorBox");
+                lastNameError.textContent="First name cannot be empty.";
+                valid=false;
+            }else{
+                lastName.classList.remove("errorFont");
+                lastName.classList.remove("errorBox");
+                firstNameError.textContent="";
+                valid=true;
+
+            }
+
+            if(userName.value.trim()===""){
+                usernameError.classList.add("errorFont");
+                userName.classList.add("errorBox");
+                usernameError.textContent="User name cannot be empty.";
+                valid=false;
+            }else{
+                usernameError.classList.remove("errorFont");
+                userName.classList.remove("errorBox");
+                usernameError.textContent="";
+                valid=true;
+            }
+
+            if(birthday.value.trim()===""){
+               birthdayError.classList.add("errorFont");
+                birthday.classList.add("errorBox");
+                birthdayError.textContent="Birthday cannot be empty.";
+                valid=false;
+            }else{
+                birthdayError.classList.remove("errorFont");
+                birthday.classList.remove("errorBox");
+                birthdayError.textContent="";
+                valid=true;
+            }
+
+            if(address.value.trim()===""){
+                addressError.classList.add("errorFont");
+                address.classList.add("errorBox");
+                addressError.textContent="Address cannot be empty.";
+                valid=false;
+            }else{
+                addressError.classList.remove("errorFont");
+                address.classList.remove("errorBox");
+                addressError.textContent="";
+                valid=true;
+            }
+
+            if(country.value === "unselected"){
+                countryError.classList.add("errorFont");
+                country.classList.add("errorBox");
+                countryError.textContent="Country cannot be empty.";
+                valid=false;
+            }else{
+                countryError.classList.remove("errorFont");
+                country.classList.remove("errorBox");
+                countryError.textContent="";
+                valid=true;
+            }
+            if(state.value === "unselected"){
+                stateError.classList.add("errorFont");
+                state.classList.add("errorBox");
+                stateError.textContent="State cannot be empty.";
+                valid=false;
+            }else{
+                stateError.classList.remove("errorFont");
+                state.classList.remove("errorBox");
+                stateError.textContent="";
+                valid=true;
+            }
+
+            if(nameOnCard.value.trim()===""){
+                nameOnCardError.classList.add("errorFont");
+                nameOnCard.classList.add("errorBox");
+                nameOnCardError.textContent="Name on card cannot be empty.";
+                valid = false;
+            }else{
+                nameOnCardError.classList.remove("errorFont");
+                nameOnCard.classList.remove("errorBox");
+                nameOnCardError.textContent="";
+                valid = true;
+            }
+
+            if(creditCardNumber.value.trim()===""){
+                creditCardNumberError.classList.add("errorFont");
+                creditCardNumber.classList.add("errorBox");
+                creditCardNumberError.textContent="Credit card number cannot be empty.";
+                valid = false;
+            }else{
+                creditCardNumberError.classList.remove("errorFont");
+                creditCardNumber.classList.remove("errorBox");
+                creditCardNumberError.textContent="";
+                valid = true;
+            }
+
+            for (let i = 0; i < radioFont.length; i++) {
+                radioFont[i].style.color = "green";
+            }
+        
+            
+            for(let i =0; i< checkBox.length;i++ ){
+                checkBox[i].style.color="green";
+            }
+
+
+        }
+
+
+
+    </script>
+    
+    
+   
+</body>
+</html> 
